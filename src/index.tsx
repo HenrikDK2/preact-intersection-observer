@@ -1,5 +1,5 @@
 import { createRef, RefObject } from "preact";
-import { useCallback, useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 interface ObserverOptions {
   rootMargin?: string;
@@ -8,15 +8,11 @@ interface ObserverOptions {
 }
 
 export default function (options: ObserverOptions) {
-  const ref: RefObject<any> = createRef();
-  const init: RefObject<any> = createRef();
+  const ref: RefObject<HTMLElement> = createRef();
+  const init: RefObject<boolean> = createRef();
   const [inView, setInView] = useState<boolean>(false);
 
-  const observerCallback = useCallback(
-    (entries) => entries[0].isIntersecting === !inView && setInView(!inView),
-    [inView]
-  );
-
+  const observerCallback = (entries) => entries[0].isIntersecting === !inView && setInView(!inView);
   const observer = new IntersectionObserver(observerCallback, { ...options, root: ref.current });
 
   useEffect(() => {
