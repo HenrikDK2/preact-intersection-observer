@@ -29,7 +29,6 @@ const intersectOptions = {
 
 const Section = () => {
   const [sectionRef, inView] = useObserver(intersectOptions);
-  const filteredProjects = filterProjectsByTags(projects, tags);
 
   return <section ref={sectionRef}>...</section>;
 };
