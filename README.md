@@ -17,7 +17,7 @@ npm i preact-intersection-observer
 ## Example:
 
 ```jsx
-import Preact from "preact";
+import { h } from "preact";
 import useObserver from "preact-intersection-observer";
 
 //Options - Example
