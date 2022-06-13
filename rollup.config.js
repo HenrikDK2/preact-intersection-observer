@@ -3,6 +3,7 @@ import { terser } from "rollup-plugin-terser";
 
 export default {
   input: "src/index.tsx",
+  external: ['preact', 'preact/hooks'],
   output: {
     file: "dist/index.js",
     format: "cjs",
