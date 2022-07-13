@@ -40,7 +40,7 @@ export const useObserver = <T extends HTMLElement>(
           observer.current.unobserve(ref.current);
         }
       }
-    }, [ref, inView, ref.current]);
+    }, [ref, inView]);
   }
 
   return [ref, inView];
