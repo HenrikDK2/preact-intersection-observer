@@ -1,6 +1,6 @@
 # preact-intersection-observer
 
-Less than 0.5kb minified. This package is lightweight and fast with a simple API made for Preact.
+Less than 1kb minified. This package is lightweight and fast with a simple API made for Preact.
 
 ## Install
 
@@ -18,7 +18,7 @@ npm i preact-intersection-observer
 
 ```jsx
 import { h } from "preact";
-import useObserver from "preact-intersection-observer";
+import { useObserver } from "preact-intersection-observer";
 
 //Options - Example
 const intersectOptions = {
@@ -27,11 +27,22 @@ const intersectOptions = {
   rootMargin: "0px 0px -250px 0px",
 };
 
-const Section = () => {
+export const Section = () => {
   const [sectionRef, inView] = useObserver(intersectOptions);
 
   return <section ref={sectionRef}>...</section>;
 };
+```
 
-export default Section;
+## TypeScript usage example:
+
+```tsx
+import { FunctionalComponent, h } from "preact";
+import { useObserver } from "preact-intersection-observer";
+
+export const Component: FunctionalComponent = () => {
+  const [ref, inView] = useObserver<HTMLDivElement>();
+
+  return <div ref={ref}>...</div>;
+};
 ```
