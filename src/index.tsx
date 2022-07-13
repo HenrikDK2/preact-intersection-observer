@@ -7,6 +7,8 @@ interface ObserverOptions {
   triggerOnce?: boolean;
 }
 
+type Entries = IntersectionObserverEntry[];
+
 const isBrowser = typeof window !== "undefined";
 
 export const useObserver = <T extends HTMLElement>(
@@ -18,8 +20,9 @@ export const useObserver = <T extends HTMLElement>(
   const init = useRef<boolean>(false);
 
   if (isBrowser) {
-    const observerCallback = (entries: any) =>
+    const observerCallback = (entries: Entries) => {
       setInView(entries[0].isIntersecting);
+    };
 
     if (!observer.current) {
       observer.current = new IntersectionObserver(observerCallback, {
