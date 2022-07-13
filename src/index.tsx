@@ -7,6 +7,8 @@ interface ObserverOptions {
   triggerOnce?: boolean;
 }
 
+type Entries = IntersectionObserverEntry[];
+
 const isBrowser = typeof window !== "undefined";
 
 export const useObserver = <T extends HTMLElement>(
@@ -18,10 +20,11 @@ export const useObserver = <T extends HTMLElement>(
   const init = useRef<boolean>(false);
 
   if (isBrowser) {
-    const observerCallback = (entries: any) =>
-      setInView(entries[0].isIntersecting);
-
     if (!observer.current) {
+      const observerCallback = (entries: Entries) => {
+        setInView(entries[0].isIntersecting);
+      };
+
       observer.current = new IntersectionObserver(observerCallback, {
         ...options,
         root: ref.current,
@@ -30,16 +33,14 @@ export const useObserver = <T extends HTMLElement>(
 
     useEffect(() => {
       if (observer.current && ref.current) {
-        if (ref?.current && !init.current) {
+        if (!init.current) {
           observer.current.observe(ref.current);
           init.current = true;
-        }
-
-        if (options?.triggerOnce && init.current && inView === true) {
+        } else if (options?.triggerOnce && inView) {
           observer.current.unobserve(ref.current);
         }
       }
-    }, [ref, inView, ref.current]);
+    }, [ref, inView]);
   }
 
   return [ref, inView];
