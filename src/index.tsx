@@ -33,12 +33,10 @@ export const useObserver = <T extends HTMLElement>(
 
     useEffect(() => {
       if (observer.current && ref.current) {
-        if (ref?.current && !init.current) {
+        if (!init.current) {
           observer.current.observe(ref.current);
           init.current = true;
-        }
-
-        if (options?.triggerOnce && init.current && inView === true) {
+        } else if (options?.triggerOnce && inView) {
           observer.current.unobserve(ref.current);
         }
       }
