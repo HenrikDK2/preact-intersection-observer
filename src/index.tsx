@@ -45,3 +45,5 @@ export const useObserver = <T extends HTMLElement>(
 
   return [ref, inView];
 };
+
+export default useObserver;
