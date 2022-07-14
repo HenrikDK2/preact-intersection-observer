@@ -20,7 +20,6 @@ npm i preact-intersection-observer
 import { h } from "preact";
 import { useObserver } from "preact-intersection-observer";
 
-//Options - Example
 const intersectOptions = {
   triggerOnce: true,
   threshold: window.innerWidth < 500 ? 0.05 : 0.2,
