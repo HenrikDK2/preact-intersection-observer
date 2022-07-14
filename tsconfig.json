@@ -4,6 +4,8 @@
     "declaration": true,
     "outDir": "dist",
     "moduleResolution": "node",
-    "target": "ES6"
+    "target": "ES6",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
   }
 }

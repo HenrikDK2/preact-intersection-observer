@@ -30,21 +30,18 @@ export const useObserver = <T extends HTMLElement>(
         root: ref.current,
       });
     }
-
-    useEffect(() => {
-      if (observer.current && ref.current) {
-        if (!init.current) {
-          observer.current.observe(ref.current);
-          init.current = true;
-        } else if (options?.triggerOnce && inView) {
-          observer.current.unobserve(ref.current);
-        }
-      }
-    }, [ref, inView]);
   }
+
+  useEffect(() => {
+    if (observer.current && ref.current) {
+      if (!init.current) {
+        observer.current.observe(ref.current);
+        init.current = true;
+      } else if (options?.triggerOnce && inView) {
+        observer.current.unobserve(ref.current);
+      }
+    }
+  }, [ref, inView, options?.triggerOnce]);
 
   return [ref, inView];
 };
-
-// Fix for breaking changes
-export default useObserver;
