@@ -3,12 +3,14 @@ import { useEffect, useRef, useState } from "preact/hooks";
 
 type Entries = IntersectionObserverEntry[];
 type InView = boolean;
+type TriggerOnce = boolean;
+type Init = boolean;
 
 interface ObserverOptions {
   rootMargin?: IntersectionObserverInit["rootMargin"];
   threshold?: IntersectionObserverInit["threshold"];
   defaultInView?: InView;
-  triggerOnce?: boolean;
+  triggerOnce?: TriggerOnce;
 }
 
 const isBrowser = typeof window !== "undefined";
@@ -19,7 +21,7 @@ export const useObserver = <T extends HTMLElement>(
   const defaultInView = options?.defaultInView || false;
   const [inView, setInView] = useState<InView>(defaultInView);
   const observer = useRef<IntersectionObserver>();
-  const init = useRef<boolean>(false);
+  const init = useRef<Init>(false);
   const ref = useRef<T>(null);
 
   if (isBrowser && !observer.current) {
