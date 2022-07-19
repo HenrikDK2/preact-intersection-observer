@@ -32,7 +32,7 @@ export const useObserver = <T extends HTMLElement>(
     if (!init.current) {
       observer.current.observe(ref.current);
       init.current = true;
-    } else if (options.triggerOnce && defaultInView !== inView) {
+    } else if (options?.triggerOnce && defaultInView !== inView) {
       observer.current.unobserve(ref.current);
     }
   }, [ref, inView, defaultInView, options]);
