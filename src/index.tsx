@@ -22,9 +22,9 @@ export const useObserver = <T extends HTMLElement>(
 
   if (typeof window !== "undefined" && !observer.current) {
     observer.current = new IntersectionObserver(
-      (e) => {
-        entry.current = e[0];
-        setInView(e[0].isIntersecting);
+      (entries) => {
+        entry.current = entries[0];
+        setInView(entries[0].isIntersecting);
       },
       {
         ...options,
