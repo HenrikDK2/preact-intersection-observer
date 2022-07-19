@@ -10,9 +10,12 @@ npm i preact-intersection-observer
 
 ## Options
 
-- rootMargin (default `0px`) Margin around element, values serves to grow or shrink each side of the root element's bounding.
-- threshold (default `1.0`) - Percentage of the target in view before firing the observer callback.
-- triggerOnce (default `false`) - Trigger the observer callback once.
+| Name          | Type      | Default | Description                                                                                                                                                            |
+| ------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rootMargin    | `string`  | `0px`   | Grow or shrink each side of the root element's bounding box. This is specfied the same way as the CSS property `margin`.                                               |
+| threshold     | `number`  | `1.0`   | Target visibility percentage in view before triggering. The value is between `0` and `1`, and for an example `0.25` is 25% and `1` is 100%.                            |
+| triggerOnce   | `boolean` | `false` | Trigger the firing event only once.                                                                                                                                    |
+| defaultInView | `boolean` | `false` | Specify if inView defaults as either `true` or `false`. This can be useful when you want something to be visible inView at first, but then disappear when out of view. |
 
 ## Example:
 
@@ -22,7 +25,6 @@ import { useObserver } from "preact-intersection-observer";
 
 const intersectOptions = {
   triggerOnce: true,
-  threshold: window.innerWidth < 500 ? 0.05 : 0.2,
   rootMargin: "0px 0px -250px 0px",
 };
 
