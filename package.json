@@ -36,8 +36,5 @@
   },
   "peerDependencies": {
     "preact": "10.x"
-  },
-  "dependencies": {
-    "preact-intersection-observer": "^2.1.1"
   }
 }
