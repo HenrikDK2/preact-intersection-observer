@@ -1,6 +1,7 @@
 # preact-intersection-observer
 
-Less than 1kb minified. This package is lightweight and fast with a simple API made for Preact.
+A lightweight Preact implementation of [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+The package is less than 1kb minified, and fast with a simple API made for Preact.
 
 ## Install
 
