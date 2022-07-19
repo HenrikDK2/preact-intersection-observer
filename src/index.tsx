@@ -1,22 +1,26 @@
 import { Ref } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
+
+type Entries = IntersectionObserverEntry[];
+type InView = boolean;
+
 interface ObserverOptions {
   rootMargin?: IntersectionObserverInit["rootMargin"];
   threshold?: IntersectionObserverInit["threshold"];
+  defaultInView?: InView;
   triggerOnce?: boolean;
 }
-
-type Entries = IntersectionObserverEntry[];
 
 const isBrowser = typeof window !== "undefined";
 
 export const useObserver = <T extends HTMLElement>(
   options?: ObserverOptions
-): [ref: Ref<T>, inView: boolean] => {
-  const [inView, setInView] = useState<boolean>(false);
+): [ref: Ref<T>, inView: InView] => {
+  const defaultInView = options?.defaultInView || false;
+  const [inView, setInView] = useState<InView>(defaultInView);
   const observer = useRef<IntersectionObserver>();
-  const ref = useRef<T>(null);
   const init = useRef<boolean>(false);
+  const ref = useRef<T>(null);
 
   if (isBrowser && !observer.current) {
     const params = { ...options, root: ref.current };
@@ -28,10 +32,10 @@ export const useObserver = <T extends HTMLElement>(
     if (!init.current) {
       observer.current.observe(ref.current);
       init.current = true;
-    } else if (options?.triggerOnce && inView) {
+    } else if (options.triggerOnce && defaultInView !== inView) {
       observer.current.unobserve(ref.current);
     }
-  }, [ref, inView, options]);
+  }, [ref, inView, defaultInView, options]);
 
   return [ref, inView];
 };
