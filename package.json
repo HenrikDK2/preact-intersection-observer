@@ -1,6 +1,6 @@
 {
   "name": "preact-intersection-observer",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "A lightweight Preact hooks implementation of Intersection Observer API",
   "main": "dist/index.js",
   "homepage": "https://github.com/HenrikDK2/preact-intersection-observer",
@@ -14,8 +14,17 @@
     "npm",
     "intersection",
     "intersection observer",
+    "intersection observer preact",
+    "lightweight intersection observer",
     "observer",
-    "preact-intersection-observer"
+    "preact-intersection-observer",
+    "lightweight",
+    "hooks",
+    "inView",
+    "viewport",
+    "useObserver",
+    "useIntersectionObserver",
+    "lazy load"
   ],
   "types": "dist/src/index.d.ts",
   "author": "Henrik Mundt Milo",
