@@ -1,6 +1,6 @@
 {
   "name": "preact-intersection-observer",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Lightweight observer made for Preact, less than 0.5kb minified!",
   "main": "dist/index.js",
   "homepage": "https://github.com/HenrikDK2/preact-intersection-observer",
@@ -17,7 +17,7 @@
     "observer",
     "preact-intersection-observer"
   ],
-  "types": "dist/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "author": "Henrik Mundt Milo",
   "license": "MIT",
   "devDependencies": {
