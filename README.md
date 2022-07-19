@@ -1,7 +1,7 @@
 # preact-intersection-observer
 
 A lightweight Preact hooks implementation of [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
-Preact Intersection Observer is less than 1kb minified, and fast with a simple API made for Preact.
+preact-intersection-observer is fast, and is less than 0.35kb gzipped with an API that is mind-numbingly easy to use.
 
 ## Install
 
@@ -18,7 +18,7 @@ npm i preact-intersection-observer --save
 | triggerOnce   | `boolean` | `false` | Trigger the firing event only once.                                                                                                                             |
 | defaultInView | `boolean` | `false` | Specify if inView defaults as either `true` or `false`. This can be useful when you want something to be visible at first, but then disappear when out of view. |
 
-## Usage:
+## Usage
 
 ```jsx
 const [ref, inView, entry] = useObserver();
