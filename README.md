@@ -24,7 +24,7 @@ npm i preact-intersection-observer --save
 const [ref, inView, entry] = useObserver();
 ```
 
-The useObserver `options` are optional, but `ref` do need to directly reference the element that it has to observe. Both `inView` and `entry` will update when the element has entered or exited the viewport. inView is a boolean that checks if the element observed is within the viewport. `Entry` returns the IntersectionObserver entry, which is documented [here](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry).
+The useObserver `options` are optional, but `ref` do need to directly reference the element that it has to observe. Both `inView` and `entry` will update when the element has entered or exited the viewport. `inView` is a boolean that checks if the element is within the viewport. `Entry` returns the IntersectionObserver entry, which is documented [here](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry).
 
 ### JavaScript example
 
