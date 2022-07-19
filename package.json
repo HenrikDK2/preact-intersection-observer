@@ -1,6 +1,6 @@
 {
   "name": "preact-intersection-observer",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Lightweight observer made for Preact, less than 0.5kb minified!",
   "main": "dist/index.js",
   "homepage": "https://github.com/HenrikDK2/preact-intersection-observer",
@@ -36,5 +36,8 @@
   },
   "peerDependencies": {
     "preact": "10.x"
+  },
+  "dependencies": {
+    "preact-intersection-observer": "^2.1.1"
   }
 }

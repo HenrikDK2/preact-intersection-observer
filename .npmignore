@@ -3,6 +3,7 @@ README.md
 rollup.config.js
 tsconfig.json
 src
+!dist/src
 example
 .cache
 .gitignore
