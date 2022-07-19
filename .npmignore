@@ -3,4 +3,9 @@ README.md
 rollup.config.js
 tsconfig.json
 src
+example
+.cache
+.gitignore
+.eslintrc.js
+.npmignore
 *.tgz

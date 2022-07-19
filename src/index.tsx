@@ -1,47 +1,41 @@
 import { Ref } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 
+type Entries = IntersectionObserverEntry[];
+type InView = boolean;
+
 interface ObserverOptions {
-  rootMargin?: string;
-  threshold?: number;
+  rootMargin?: IntersectionObserverInit["rootMargin"];
+  threshold?: IntersectionObserverInit["threshold"];
+  defaultInView?: InView;
   triggerOnce?: boolean;
 }
-
-type Entries = IntersectionObserverEntry[];
 
 const isBrowser = typeof window !== "undefined";
 
 export const useObserver = <T extends HTMLElement>(
   options?: ObserverOptions
-): [ref: Ref<T>, inView: boolean] => {
-  const [inView, setInView] = useState<boolean>(false);
+): [ref: Ref<T>, inView: InView] => {
+  const defaultInView = options?.defaultInView || false;
+  const [inView, setInView] = useState<InView>(defaultInView);
   const observer = useRef<IntersectionObserver>();
-  const ref = useRef<T>(null);
   const init = useRef<boolean>(false);
+  const ref = useRef<T>(null);
 
-  if (isBrowser) {
-    if (!observer.current) {
-      const observerCallback = (entries: Entries) => {
-        setInView(entries[0].isIntersecting);
-      };
-
-      observer.current = new IntersectionObserver(observerCallback, {
-        ...options,
-        root: ref.current,
-      });
-    }
+  if (isBrowser && !observer.current) {
+    const params = { ...options, root: ref.current };
+    const callback = (e: Entries) => setInView(e[0].isIntersecting);
+    observer.current = new IntersectionObserver(callback, params);
   }
 
   useEffect(() => {
-    if (observer.current && ref.current) {
-      if (!init.current) {
-        observer.current.observe(ref.current);
-        init.current = true;
-      } else if (options?.triggerOnce && inView) {
-        observer.current.unobserve(ref.current);
-      }
+    if (!init.current) {
+      observer.current.observe(ref.current);
+      init.current = true;
+    } else if (options?.triggerOnce && defaultInView !== inView) {
+      observer.current.unobserve(ref.current);
     }
-  }, [ref, inView, options?.triggerOnce]);
+  }, [ref, inView, defaultInView, options]);
 
   return [ref, inView];
 };
