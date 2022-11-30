@@ -1,12 +1,12 @@
-import typescript from "rollup-plugin-typescript2";
-import { terser } from "rollup-plugin-terser";
+import typescript from "@rollup/plugin-typescript";
+import terser from "@rollup/plugin-terser";
 
 export default {
   input: "src/index.tsx",
-  external: ['preact', 'preact/hooks'],
+  external: ["preact", "preact/hooks"],
   output: {
     file: "dist/index.js",
-    format: "cjs",
+    format: "module",
     exports: "auto",
   },
 
