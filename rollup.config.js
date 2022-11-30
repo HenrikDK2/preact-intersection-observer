@@ -6,7 +6,7 @@ export default {
   external: ["preact", "preact/hooks"],
   output: {
     file: "dist/index.js",
-    format: "module",
+    format: "cjs",
     exports: "auto",
   },
 
