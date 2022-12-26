@@ -36,7 +36,7 @@ export const useObserver = <T extends HTMLElement>(
   useEffect(() => {
     if (!entry.current) {
       observer.current.observe(ref.current);
-    } else if (options?.triggerOnce) {
+    } else if (options?.triggerOnce && ref.current) {
       observer.current.unobserve(ref.current);
     }
   }, [ref, inView, options]);
