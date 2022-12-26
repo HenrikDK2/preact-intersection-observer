@@ -1,12 +1,11 @@
 {
-  "include": ["src/**/*"],
+  "include": ["**/*"],
   "compilerOptions": {
     "declaration": true,
     "outDir": "dist",
     "moduleResolution": "node",
     "target": "ES6",
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    "rootDir": "./src"
+    "jsxImportSource": "preact"
   }
 }

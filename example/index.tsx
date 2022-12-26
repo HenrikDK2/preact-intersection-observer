@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FunctionComponent, render, h } from "preact";
-import { useObserver } from "../src";
+import { useObserver } from "../dist";
 
 const App: FunctionComponent = () => {
   const [ref, inView] = useObserver<HTMLHeadingElement>({ triggerOnce: true });
