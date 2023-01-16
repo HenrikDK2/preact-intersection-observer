@@ -5,7 +5,7 @@ type Entry = IntersectionObserverEntry | undefined;
 type InView = boolean;
 type TriggerOnce = boolean;
 
-interface ObserverOptions {
+export interface ObserverOptions {
   rootMargin?: IntersectionObserverInit["rootMargin"];
   threshold?: IntersectionObserverInit["threshold"];
   defaultInView?: InView;
