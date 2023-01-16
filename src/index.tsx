@@ -1,9 +1,9 @@
 import { Ref } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 
-type Entry = IntersectionObserverEntry | undefined;
-type InView = boolean;
-type TriggerOnce = boolean;
+export type Entry = IntersectionObserverEntry | undefined;
+export type InView = boolean;
+export type TriggerOnce = boolean;
 
 export interface ObserverOptions {
   rootMargin?: IntersectionObserverInit["rootMargin"];
