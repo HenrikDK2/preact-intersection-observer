@@ -10,6 +10,10 @@
     "build": "node build.mjs",
     "start": "parcel example/index.html --out-dir example/dist"
   },
+  "prettier": {
+    "printWidth": 120,
+    "proseWrap": "always"
+  },
   "keywords": [
     "preact",
     "npm",
@@ -40,6 +44,7 @@
     "eslint-plugin-react": "^7.32.1",
     "gzip-size": "^7.0.0",
     "parcel-bundler": "^1.12.5",
+    "prettier": "2.8.3",
     "shx": "^0.3.4",
     "terser": "^5.16.1",
     "typescript": "^4.9.4"

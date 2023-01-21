@@ -2,11 +2,7 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: [
-    "eslint:recommended",
-    "preact",
-    "plugin:@typescript-eslint/recommended",
-  ],
+  extends: ["eslint:recommended", "preact", "plugin:@typescript-eslint/recommended"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {

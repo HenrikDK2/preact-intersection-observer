@@ -1,6 +1,7 @@
 # preact-intersection-observer
 
-A lightweight Preact implementation of the Intersection Observer API that is fast and easy to use. With a gzipped size of less than 0.4kb, this package provides a simple way to detect when an element is within the viewport.
+A lightweight Preact implementation of the Intersection Observer API that is fast and easy to use. With a gzipped size
+of less than 0.4kb, this package provides a simple way to detect when an element is within the viewport.
 
 ## Installation
 
@@ -16,7 +17,11 @@ npm i preact-intersection-observer --save
 const [ref, inView, entry] = useObserver(options);
 ```
 
-The `useObserver` hook allows you to observe an element's visibility within the viewport. It takes an optional `options` object, but `ref` must reference the element that you want to observe. `inView` is a boolean that indicates whether the element is within the viewport, and `entry` returns the [IntersectionObserverEntry](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) object. Both `inView` and `entry` will update when the element enters or exits the viewport.
+The `useObserver` hook allows you to observe an element's visibility within the viewport. It takes an optional `options`
+object, but `ref` must reference the element that you want to observe. `inView` is a boolean that indicates whether the
+element is within the viewport, and `entry` returns the
+[IntersectionObserverEntry](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) object. Both
+`inView` and `entry` will update when the element enters or exits the viewport.
 
 ### ViewportObserver
 
@@ -28,7 +33,10 @@ The `useObserver` hook allows you to observe an element's visibility within the 
   />
 ```
 
-The `ViewportObserver` component is similar to the `useObserver` hook, but it is typically used when multiple observers are needed within the same component. It also takes an optional `options` object and a `render` prop that returns the `inView`, and `entry` values, as well as an `as` prop that allows you to specify the HTML element that will be used as the wrapper, it defaults to `div`.
+The `ViewportObserver` component is similar to the `useObserver` hook, but it is typically used when multiple observers
+are needed within the same component. It also takes an optional `options` object and a `render` prop that returns the
+`inView`, and `entry` values, as well as an `as` prop that allows you to specify the HTML element that will be used as
+the wrapper, it defaults to `div`.
 
 ## API
 
