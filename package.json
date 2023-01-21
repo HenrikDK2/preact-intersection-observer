@@ -1,6 +1,6 @@
 {
   "name": "preact-intersection-observer",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "A lightweight Preact hooks implementation of Intersection Observer API",
   "main": "dist/index.js",
   "homepage": "https://github.com/HenrikDK2/preact-intersection-observer",
