@@ -8,7 +8,33 @@ A lightweight Preact hooks implementation of the Intersection Observer API that 
 npm i preact-intersection-observer --save
 ```
 
-## Options
+## Usage
+
+### useObserver
+
+```jsx
+const [ref, inView, entry] = useObserver(options);
+```
+
+The `useObserver` hook allows you to observe an element's visibility within the viewport. It takes an optional `options` object, but `ref` must reference the element that you want to observe. `inView` is a boolean that indicates whether the element is within the viewport, and `entry` returns the [IntersectionObserverEntry](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) object. Both `inView` and `entry` will update when the element enters or exits the viewport.
+
+### ViewportObserver
+
+```jsx
+  <ViewportObserver
+    as="section"
+    options={options}
+    render={({ ref, inView, entry }) => (...)}
+  />
+```
+
+The `ViewportObserver` component is similar to the `useObserver` hook, but it is typically used when multiple observers are needed within the same component. It also takes an optional `options` object and a `render` prop that returns the `inView`, and `entry` values, as well as an `as` prop that allows you to specify the HTML element that will be used as the wrapper, it defaults to `div`.
+
+## API
+
+### Options
+
+The `options` object is used in both the `useObserver` hook, and the `ViewportObserver` component.
 
 | Name          | Type      | Default | Description                                                                                                                                                                                                                       |
 | ------------- | --------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -17,41 +43,55 @@ npm i preact-intersection-observer --save
 | triggerOnce   | `boolean` | `false` | If true, the observer will trigger only once.                                                                                                                                                                                     |
 | defaultInView | `boolean` | `false` | Specifies if the element defaults to being in view or not. This can be useful if you want an element to be visible at first, but then disappear when it goes out of view.                                                         |
 
-## Usage
+### ViewportObserver props
 
-```jsx
-const [ref, inView, entry] = useObserver();
-```
+The `options` object is used in both the `useObserver` hook, and the `ViewportObserver` component.
 
-The `useObserver` function takes an optional `options` object, but `ref` must reference the element that you want to observe. `inView` is a boolean that indicates whether the element is within the viewport, and `entry` returns the [IntersectionObserverEntry](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) object. Both `inView` and `entry` will update when the element enters or exits the viewport.
+| Name   | Type                                     | Default     | Description                                                                                                                                                                                                                                                            |
+| ------ | ---------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| as     | `string`                                 | `div`       | This prop allows you to specify the type of HTML element that will be used to wrap the content passed to the `ViewportObserver` component. By default, it will be a div element, but you can change it to any valid HTML element, such as a section, article, or span. |
+| render | `({inView, entry}) => ComponentChildren` | `undefined` | This prop is a function that receives an object containing the `inView` boolean, and the root `entry` of the container. It expects that you return a component that will be rendered by the `ViewportObserver`.                                                        |
+
+## Examples
 
 ### JavaScript example
 
 ```jsx
 import { h } from "preact";
-import { useObserver } from "preact-intersection-observer";
+import { useObserver, ViewportObserver } from "preact-intersection-observer";
 
-const options = {
-  triggerOnce: true,
-  rootMargin: "0px 0px -250px 0px",
+// useObserver hook
+export const Example = () => {
+  const [ref, inView, entry] = useObserver();
+
+  return <div ref={ref}>...</div>;
 };
 
-export const Section = () => {
-  const [ref, inView, entry] = useObserver(options);
-
-  return <section ref={ref}>...</section>;
-};
+// ViewportObserver
+export const Example2 = () => (
+  <ViewportObserver
+    render={({ ref, inView, entry }) => (...)}
+  />
+);
 ```
 
 ### TypeScript example
 
 ```tsx
 import { FunctionalComponent, h } from "preact";
-import { useObserver } from "preact-intersection-observer";
+import { useObserver, ViewportObserver } from "preact-intersection-observer";
 
-export const Component: FunctionalComponent = () => {
+// useObserver hook
+export const Example: FunctionalComponent = () => {
   const [ref, inView, entry] = useObserver<HTMLDivElement>();
 
   return <div ref={ref}>...</div>;
 };
+
+// ViewportObserver
+export const Example2: FunctionalComponent = () => (
+  <ViewportObserver
+    render={({ inView, entry }) => (...)}
+  />
+);
 ```
