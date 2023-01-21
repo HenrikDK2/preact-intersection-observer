@@ -1,37 +1,42 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { FunctionComponent, render, h } from "preact";
-import { useObserver } from "../dist";
+import { FunctionComponent, render, h, JSX } from "preact";
+import { useObserver, ObserverOptions } from "../dist";
 
-const App: FunctionComponent = () => {
-  const [ref, inView] = useObserver<HTMLHeadingElement>({ triggerOnce: true });
-  const [ref2, inView2] = useObserver<HTMLHeadingElement>();
+interface IHeadingProps {
+  options?: ObserverOptions;
+  style?: JSX.CSSProperties;
+}
+
+const Heading: FunctionComponent<IHeadingProps> = ({ options, style, children }) => {
+  const [ref, inView] = useObserver<HTMLHeadingElement>(options);
 
   return (
-    <main>
-      <h1
-        ref={ref}
-        style={{
-          margin: "2000px 0 200px",
-          transition: "all 2s ease",
-          textAlign: "center",
-          opacity: inView ? 1 : 0,
-        }}
-      >
-        Trigger once
-      </h1>
-      <h1
-        ref={ref2}
-        style={{
-          margin: "2000px 0 200px",
-          transition: "all 2s ease",
-          textAlign: "center",
-          opacity: inView2 ? 1 : 0,
-        }}
-      >
-        Trigger always
-      </h1>
-    </main>
+    <h1
+      ref={ref}
+      style={{
+        margin: "100vh 0 50vh 0",
+        transition: "all 2s ease",
+        textAlign: "center",
+        opacity: inView ? 1 : 0,
+        ...style,
+      }}
+    >
+      {children}
+    </h1>
   );
 };
 
-render(<App />, document.getElementById("root")!);
+render(
+  <main>
+    <Heading
+      options={{ defaultInView: true }}
+      style={{
+        margin: "50vh 0 50vh 0",
+      }}
+    >
+      Default in view
+    </Heading>
+    <Heading options={{ triggerOnce: true }}>Trigger once</Heading>
+    <Heading>Trigger always</Heading>
+  </main>,
+  document.getElementById("root")
+);
