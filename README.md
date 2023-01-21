@@ -10,12 +10,12 @@ npm i preact-intersection-observer --save
 
 ## Options
 
-| Name          | Type      | Default | Description                                                                                                                                                               |
-| ------------- | --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rootMargin    | `string`  | `0px`   | Allows you to grow or shrink the area around the root element's bounding box, specified in the same format as the CSS margin property.                                    |
-| threshold     | `number`  | `0.0`   | The target visibility percentage in view before triggering the observer. The value can range from 0 to 1, with 0.25 being 25% and 1 being 100%.                           |
-| triggerOnce   | `boolean` | `false` | If true, the observer will trigger only once.                                                                                                                             |
-| defaultInView | `boolean` | `false` | Specifies if the element defaults to being in view or not. This can be useful if you want an element to be visible at first, but then disappear when it goes out of view. |
+| Name          | Type      | Default | Description                                                                                                                                                                                                                                       |
+| ------------- | --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rootMargin    | `string`  | `0px`   | Allows you to grow or shrink the area around the root element's bounding box, specified in the same format as the CSS margin property.                                                                                                            |
+| threshold     | `number`  | `0.0`   | The target's visibility percentage in view is at least the specified value. The value can range from 0 to 1, with 0 meaning that even a single visible pixel is sufficient, 0.25 representing 25% visibility, and 1 representing 100% visibility. |
+| triggerOnce   | `boolean` | `false` | If true, the observer will trigger only once.                                                                                                                                                                                                     |
+| defaultInView | `boolean` | `false` | Specifies if the element defaults to being in view or not. This can be useful if you want an element to be visible at first, but then disappear when it goes out of view.                                                                         |
 
 ## Usage
 
