@@ -6,8 +6,12 @@ on:
 
 jobs:
   build:
-    name: Check for build errors,
+    name: Check for build errors
     runs-on: ubuntu-latest
     steps:
-      - name: npm build command
-        run: npm run build
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
+      - run: npm run ci
+      - run: npm run build
