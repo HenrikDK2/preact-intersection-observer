@@ -13,7 +13,7 @@ npm i preact-intersection-observer --save
 | Name          | Type      | Default | Description                                                                                                                                                               |
 | ------------- | --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | rootMargin    | `string`  | `0px`   | Allows you to grow or shrink the area around the root element's bounding box, specified in the same format as the CSS margin property.                                    |
-| threshold     | `number`  | `1.0`   | The target visibility percentage in view before triggering the observer. The value can range from 0 to 1, with 0.25 being 25% and 1 being 100%.                           |
+| threshold     | `number`  | `0.0`   | The target visibility percentage in view before triggering the observer. The value can range from 0 to 1, with 0.25 being 25% and 1 being 100%.                           |
 | triggerOnce   | `boolean` | `false` | If true, the observer will trigger only once.                                                                                                                             |
 | defaultInView | `boolean` | `false` | Specifies if the element defaults to being in view or not. This can be useful if you want an element to be visible at first, but then disappear when it goes out of view. |
 
