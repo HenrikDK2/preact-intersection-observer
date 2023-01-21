@@ -19,7 +19,7 @@ try {
   const files = ["dist/index.js"];
 
   for (const file of files) {
-    execSync(`terser -o ${file} --compress --mangle -- ${file}`);
+    execSync(`terser -o ${file} -c -m -- ${file}`);
     console.log(`${file} - 0.${gzipSizeFromFileSync(file)}KB`);
   }
 } catch (error) {
