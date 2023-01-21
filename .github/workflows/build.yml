@@ -4,6 +4,9 @@ on:
     branches:
       - master
 
+env:
+  TERM: linux
+
 jobs:
   build:
     name: Check for build errors
