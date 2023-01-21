@@ -3,7 +3,7 @@ import { gzipSizeFromFileSync } from "gzip-size";
 
 try {
   // ESlint
-  execSync("clear && echo Running ESlint...", { stdio: "inherit" });
+  execSync("clear && echo Running ESLint...", { stdio: "inherit" });
   execSync("eslint ./src", { stdio: "inherit" });
 
   // Prettier
