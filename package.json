@@ -7,9 +7,8 @@
   "bugs": "https://github.com/HenrikDK2/preact-intersection-observer/issues",
   "type": "module",
   "scripts": {
-    "build": "rm -rf dist && tsc && npm run optimize",
+    "build": "rm -rf dist && tsc && node optimize.cjs",
     "start": "npm run build && parcel example/index.html --out-dir example/dist",
-    "optimize": "terser -o dist/index.js --compress --mangle -- dist/index.js && npm run gzip",
     "gzip": "echo \"gzip size: 0.$(gzip -c ./dist/index.js | wc -c)kb\""
   },
   "keywords": [
@@ -19,6 +18,7 @@
     "intersection observer",
     "intersection observer preact",
     "lightweight intersection observer",
+    "viewport observer",
     "observer",
     "preact-intersection-observer",
     "lightweight",
