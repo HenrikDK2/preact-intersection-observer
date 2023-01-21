@@ -2,8 +2,7 @@ import { execSync } from "child_process";
 import { gzipSizeFromFileSync } from "gzip-size";
 
 // Delete dist folder, and build project
-execSync("shx rm -rf ./dist");
-execSync("tsc");
+execSync("shx rm -rf ./dist .cache && tsc");
 
 // Optimize files
 const files = ["dist/index.js"];
