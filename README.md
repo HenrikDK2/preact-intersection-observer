@@ -1,6 +1,6 @@
 # preact-intersection-observer
 
-A lightweight Preact implementation of the Intersection Observer API that is fast and easy to use. With a gzipped size of less than 0.35kb, this package provides a simple way to detect when an element is within the viewport.
+A lightweight Preact implementation of the Intersection Observer API that is fast and easy to use. With a gzipped size of less than 0.4kb, this package provides a simple way to detect when an element is within the viewport.
 
 ## Installation
 

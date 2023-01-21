@@ -1,6 +1,5 @@
-import { Ref } from "preact";
+import { Ref, JSX, ComponentChildren, FunctionalComponent, h } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
-export { ViewportObserver } from "./ViewportObserver";
 
 export type Entry = IntersectionObserverEntry | undefined;
 export type InView = boolean;
@@ -43,4 +42,17 @@ export const useObserver = <T extends HTMLElement>(
   }, [ref, inView, options]);
 
   return [ref, inView, entry.current];
+};
+
+/* ViewportObserver */
+export interface ViewportObserverProps {
+  render: (props: { inView: InView; entry: Entry }) => ComponentChildren;
+  options?: ObserverOptions;
+  as?: keyof JSX.IntrinsicElements;
+}
+
+export const ViewportObserver: FunctionalComponent<ViewportObserverProps> = ({ render, options, as = "div" }) => {
+  const [ref, inView, entry] = useObserver<HTMLElement>(options);
+
+  return h(as, { ref }, render({ inView, entry }));
 };

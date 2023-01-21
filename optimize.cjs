@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { execSync } = require("child_process");
 
-const files = ["dist/index.js", "dist/ViewportObserver.js"];
+const files = ["dist/index.js"];
 
 try {
   console.log("Optimizing...");
