@@ -20,7 +20,7 @@ export const useObserver = <T extends HTMLElement>(
   const entry = useRef<Entry>();
   const ref = useRef<T>(null);
 
-  // If window and the observer isn't defined
+  // If window is defined, and the observer isn't defined
   if (!!window && !observer.current) {
     observer.current = new IntersectionObserver(
       (entries) => {
