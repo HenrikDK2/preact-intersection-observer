@@ -1,6 +1,6 @@
 # preact-intersection-observer
 
-A lightweight Preact hooks implementation of the Intersection Observer API that is fast and easy to use. With a gzipped size of less than 0.35kb, this package provides a simple way to detect when an element is within the viewport.
+A lightweight Preact implementation of the Intersection Observer API that is fast and easy to use. With a gzipped size of less than 0.35kb, this package provides a simple way to detect when an element is within the viewport.
 
 ## Installation
 
@@ -24,7 +24,7 @@ The `useObserver` hook allows you to observe an element's visibility within the 
   <ViewportObserver
     as="section"
     options={options}
-    render={({ ref, inView, entry }) => (...)}
+    render={({ inView, entry }) => (...)}
   />
 ```
 
@@ -70,7 +70,7 @@ export const Example = () => {
 // ViewportObserver
 export const Example2 = () => (
   <ViewportObserver
-    render={({ ref, inView, entry }) => (...)}
+    render={({ inView, entry }) => (...)}
   />
 );
 ```
