@@ -8,5 +8,6 @@ example
 .cache
 .gitignore
 .eslintrc.js
+.eslintrc.cjs
 .npmignore
 *.tgz
