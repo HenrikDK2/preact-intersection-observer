@@ -1,6 +1,6 @@
 import { ComponentChildren, h, FunctionComponent, JSX } from "preact";
 import { Entry, InView, ObserverOptions, useObserver } from "./index";
-interface ViewportObserverProps {
+export interface ViewportObserverProps {
   render: (props: { inView: InView; entry: Entry }) => ComponentChildren;
   options?: ObserverOptions;
   as?: keyof JSX.IntrinsicElements;
