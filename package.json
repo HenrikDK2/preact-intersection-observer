@@ -7,9 +7,8 @@
   "bugs": "https://github.com/HenrikDK2/preact-intersection-observer/issues",
   "type": "module",
   "scripts": {
-    "build": "rm -rf dist && tsc && node optimize.cjs",
-    "start": "parcel example/index.html --out-dir example/dist",
-    "gzip": "echo \"gzip size: 0.$(gzip -c ./dist/index.js | wc -c)kb\""
+    "build": "rm -rf dist && tsc && node optimize.mjs",
+    "start": "parcel example/index.html --out-dir example/dist"
   },
   "keywords": [
     "preact",
@@ -39,6 +38,7 @@
     "eslint": "^8.32.0",
     "eslint-config-preact": "^1.3.0",
     "eslint-plugin-react": "^7.32.1",
+    "gzip-size": "^7.0.0",
     "parcel-bundler": "^1.12.5",
     "terser": "^5.16.1",
     "typescript": "^4.9.4"

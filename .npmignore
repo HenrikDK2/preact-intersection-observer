@@ -11,4 +11,4 @@ example
 .eslintrc.cjs
 .npmignore
 *.tgz
-optimize.cjs 
+optimize.mjs 
