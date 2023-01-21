@@ -14,7 +14,7 @@ const Heading: FunctionComponent<IHeadingProps> = ({ options, style, children })
       ref={ref}
       style={{
         margin: "100vh 0 50vh 0",
-        transition: "all 2s ease",
+        transition: "opacity 2s ease",
         textAlign: "center",
         opacity: inView ? 1 : 0,
         ...style,
