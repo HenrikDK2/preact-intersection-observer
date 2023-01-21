@@ -1,9 +1,8 @@
 # preact-intersection-observer
 
-A lightweight Preact hooks implementation of [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
-preact-intersection-observer is fast, and is less than 0.35kb gzipped with an API that is mind-numbingly easy to use.
+A lightweight Preact hooks implementation of the Intersection Observer API that is fast and easy to use. With a gzipped size of less than 0.35kb, this package provides a simple way to detect when an element is within the viewport.
 
-## Install
+## Installation
 
 ```bash
 npm i preact-intersection-observer --save
@@ -11,12 +10,12 @@ npm i preact-intersection-observer --save
 
 ## Options
 
-| Name          | Type      | Default | Description                                                                                                                                                     |
-| ------------- | --------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rootMargin    | `string`  | `0px`   | Grow or shrink each side of the root element's bounding box. This is specfied the same way as the CSS property `margin`.                                        |
-| threshold     | `number`  | `1.0`   | Target visibility percentage in view before triggering. The value is between `0` and `1`, and for an example, `0.25` is 25% and `1` is 100%.                    |
-| triggerOnce   | `boolean` | `false` | Trigger the firing event only once.                                                                                                                             |
-| defaultInView | `boolean` | `false` | Specify if inView defaults as either `true` or `false`. This can be useful when you want something to be visible at first, but then disappear when out of view. |
+| Name          | Type      | Default | Description                                                                                                                                                               |
+| ------------- | --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rootMargin    | `string`  | `0px`   | Allows you to grow or shrink the area around the root element's bounding box, specified in the same format as the CSS margin property.                                    |
+| threshold     | `number`  | `1.0`   | The target visibility percentage in view before triggering the observer. The value can range from 0 to 1, with 0.25 being 25% and 1 being 100%.                           |
+| triggerOnce   | `boolean` | `false` | If true, the observer will trigger only once.                                                                                                                             |
+| defaultInView | `boolean` | `false` | Specifies if the element defaults to being in view or not. This can be useful if you want an element to be visible at first, but then disappear when it goes out of view. |
 
 ## Usage
 
@@ -24,7 +23,7 @@ npm i preact-intersection-observer --save
 const [ref, inView, entry] = useObserver();
 ```
 
-The useObserver `options` are optional, but `ref` do need to directly reference the element that it has to observe. Both `inView` and `entry` will update when the element has entered or exited the viewport. `inView` is a boolean that checks if the element is within the viewport. `Entry` returns the IntersectionObserver entry, which is documented [here](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry).
+The `useObserver` function takes an optional `options` object, but `ref` must reference the element that you want to observe. `inView` is a boolean that indicates whether the element is within the viewport, and `entry` returns the [IntersectionObserverEntry](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) object. Both `inView` and `entry` will update when the element enters or exits the viewport.
 
 ### JavaScript example
 
