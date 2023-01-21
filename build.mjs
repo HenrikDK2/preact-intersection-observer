@@ -13,7 +13,7 @@ try {
 
   for (const file of files) {
     execSync(`terser -o ${file} --compress --mangle -- ${file}`);
-    console.log(`Optimized ${file} - 0.${gzipSizeFromFileSync(file)}KB`);
+    console.log(`${file} - 0.${gzipSizeFromFileSync(file)}KB`);
   }
 } catch (error) {
   console.log(error);
