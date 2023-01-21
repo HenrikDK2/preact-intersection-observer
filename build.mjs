@@ -2,13 +2,20 @@ import { execSync } from "child_process";
 import { gzipSizeFromFileSync } from "gzip-size";
 
 try {
-  // Delete dist folder, and build project
-  execSync("shx rm -rf ./dist .cache && tsc");
+  // ESlint
+  execSync("clear && echo Running ESlint...", { stdio: "inherit" });
+  execSync("eslint ./src", { stdio: "inherit" });
 
   // Prettier
+  console.log("Prettier...");
   execSync("npx prettier --write .");
 
+  // Delete dist folder, and build project
+  console.log("Building...");
+  execSync("shx rm -rf ./dist .cache && tsc", { stdio: "inherit" });
+
   // Optimize files
+  console.log("Optimizing...\n");
   const files = ["dist/index.js"];
 
   for (const file of files) {
