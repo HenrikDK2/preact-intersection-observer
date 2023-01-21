@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "build": "rm -rf dist && tsc && node optimize.cjs",
-    "start": "npm run build && parcel example/index.html --out-dir example/dist",
+    "start": "parcel example/index.html --out-dir example/dist",
     "gzip": "echo \"gzip size: 0.$(gzip -c ./dist/index.js | wc -c)kb\""
   },
   "keywords": [
