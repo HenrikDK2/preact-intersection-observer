@@ -7,7 +7,7 @@
   "bugs": "https://github.com/HenrikDK2/preact-intersection-observer/issues",
   "type": "module",
   "scripts": {
-    "build": "eslint ./src && node build.mjs",
+    "build": "node build.mjs",
     "start": "parcel example/index.html --out-dir example/dist"
   },
   "prettier": {
