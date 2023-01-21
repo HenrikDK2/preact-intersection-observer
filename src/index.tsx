@@ -1,5 +1,6 @@
 import { Ref } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
+export { ViewportObserver } from "./ViewportObserver";
 
 export type Entry = IntersectionObserverEntry | undefined;
 export type InView = boolean;
