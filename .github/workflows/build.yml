@@ -1,0 +1,13 @@
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Check for build errors,
+    runs-on: ubuntu-latest
+    steps:
+      - name: npm build command
+        run: npm run build
