@@ -7,7 +7,7 @@ try {
   execSync("eslint ./src", { stdio: "inherit" });
 
   // Prettier
-  console.log("Prettier...");
+  console.log("Running Prettier...");
   execSync("npx prettier --write .");
 
   // Delete dist folder, and build project
@@ -24,4 +24,5 @@ try {
   }
 } catch (error) {
   console.log(error);
+  process.exit(1);
 }
