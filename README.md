@@ -53,8 +53,6 @@ The `options` object is used in both the `useObserver` hook, and the `ViewportOb
 
 ### ViewportObserver props
 
-The `options` object is used in both the `useObserver` hook, and the `ViewportObserver` component.
-
 | Name   | Type                                     | Default     | Description                                                                                                                                                                                                                                                            |
 | ------ | ---------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | as     | `string`                                 | `div`       | This prop allows you to specify the type of HTML element that will be used to wrap the content passed to the `ViewportObserver` component. By default, it will be a div element, but you can change it to any valid HTML element, such as a section, article, or span. |
