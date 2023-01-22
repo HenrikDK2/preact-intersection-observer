@@ -18,7 +18,7 @@ export const useObserver = <T extends HTMLElement>(
   const [inView, setInView] = useState<InView>(options?.defaultInView || false);
   const observer = useRef<IntersectionObserver>();
   const entry = useRef<Entry>();
-  const ref = useRef<T>(null);
+  const ref = useRef<T>();
 
   // If window is defined, and the observer isn't defined
   if (!!window && !observer.current) {
